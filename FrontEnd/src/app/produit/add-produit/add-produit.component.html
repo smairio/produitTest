@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Modifier Produit' : 'Ajouter Produit'}}</h1>
+</div>
+
+<form [formGroup]="ProduitForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field class="row-field" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" placeholder="Ex. Pr" formControlName="nom">
+            <!-- <mat-error *ngIf="clientForm.value.company_name">Only alphanumeric.</mat-error> -->
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="row">
+        <mat-form-field class="row-field" appearance="outline">
+            <mat-label>Prix unitaire</mat-label>
+            <input matInput type="text" formControlName="prixUnitaire">
+            <mat-error *ngIf="ProduitForm.value.prixUnitaire">Veuillez entrer uniquement des nombres réels .</mat-error>
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="row">
+        <mat-form-field class="row-field" appearance="outline">
+            <mat-label>Quantité</mat-label>
+            <input matInput type="text" formControlName="quantite">
+            <mat-error *ngIf="ProduitForm.value.quantite">Veuillez entrer uniquement des nombres entiers .</mat-error>
+        </mat-form-field>
+    </div>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Annuler</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Modifier' : 'Ajouter'}}</button>
+</div>
