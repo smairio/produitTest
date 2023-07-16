@@ -73,7 +73,7 @@ export class ProduitComponent implements OnInit {
   deleteProject(id : number) : any {
     this.produitService.deleteProduit(id).subscribe({
       next : (res) => {
-        this._successMessage.openSnackBar("Project deleted!", "done");
+        this._successMessage.openSnackBar("Le produit a été supprimé avec succès.", "done");
         this.getProduits();
       },
       error : (err) => {

@@ -49,7 +49,7 @@ export class AddProduitComponent implements OnInit {
         console.log(this.ProduitForm)
         this.produitService.updateProduit(this.data.id,this.ProduitForm.value).subscribe({
           next : (res) => {
-            this._successMessage.openSnackBar("Produit Updated!", "done");
+            this._successMessage.openSnackBar("Le produit a été modifié avec succès.", "done");
             console.log(res);
             this._dialogRef.close(true);
           },
@@ -63,7 +63,7 @@ export class AddProduitComponent implements OnInit {
         console.log(this.ProduitForm)
       this.produitService.addProduit(this.ProduitForm.value).subscribe({
         next:(val : any)=>{
-          this._successMessage.openSnackBar("Project added!", "done");
+          this._successMessage.openSnackBar("Le produit a été ajouté avec succès.", "done");
           this._dialogRef.close(true);
         },
         error:(err :any)=>{
